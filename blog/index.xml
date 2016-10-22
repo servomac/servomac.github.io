@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog-rsses on Random Blog</title>
+    <title>Blog-rsses on Another Machine Learning hyped blog</title>
     <link>https://servomac.github.io/blog/index.xml</link>
-    <description>Recent content in Blog-rsses on Random Blog</description>
+    <description>Recent content in Blog-rsses on Another Machine Learning hyped blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 17 Oct 2016 18:20:37 +0200</lastBuildDate>
