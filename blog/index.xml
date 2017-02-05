@@ -70,7 +70,7 @@ plt.show()
 
 &lt;p&gt;A classifier in supervised learning is tipically evaluated using a confusion matrix, with columns representing the predicted class and rows representing the actual class. I will use examples of binary classification, but this is generalizable to any number of classes.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://servomac.github.io/public/img/confusion-matrix.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://servomac.github.io/img/confusion-matrix.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In the confusion matrix, the &lt;em&gt;True Negatives&lt;/em&gt; (TN) represent the number of instances of the negative class correctly classified, while &lt;em&gt;False Positives&lt;/em&gt; (FP) are the negative instances classified as positive. &lt;em&gt;False Negatives&lt;/em&gt; (FN) are those example instances of positive class in the test data that are labeled by the predictor as negative; and &lt;em&gt;True Positives&lt;/em&gt; (TP) represent those instances of the positive class correctly classified.&lt;/p&gt;
 
