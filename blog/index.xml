@@ -101,10 +101,8 @@ plt.show()
 &lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;H. He and E. A. Garcia, &amp;ldquo;Learning from Imbalanced Data&amp;rdquo;. IEEE Trans. Knowledge and Data Engineering, vol. 21, issue 9, pp. 1263-­‐1284, 2009.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;G. Lemaitre and F. Nogueira and C. K. Aridas. &amp;ldquo;&lt;a href=&#34;https://arxiv.org/abs/1609.06570&#34;&gt;Imbalanced-learn: A Python Toolbox to Tackle the Curse of Imbalanced Datasets in Machine Learning&lt;/a&gt;. CoRR, 2016.
-TODO&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;H. He and E. A. Garcia, &amp;ldquo;Learning from Imbalanced Data&amp;rdquo;. IEEE Trans. Knowledge and Data Engineering, vol. 21, issue 9, pp. 1263-­‐1284, 2009.&lt;/li&gt;
+&lt;li&gt;G. Lemaitre and F. Nogueira and C. K. Aridas. &amp;ldquo;&lt;a href=&#34;https://arxiv.org/abs/1609.06570&#34;&gt;Imbalanced-learn: A Python Toolbox to Tackle the Curse of Imbalanced Datasets in Machine Learning&lt;/a&gt;. CoRR, 2016.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
