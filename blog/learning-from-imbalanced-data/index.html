@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Data Science, infrastructure and software craftsmanship">
+
+<base href="https://servomac.github.io/">
+<title>
+
+
+     Learning from imbalanced data 
+
+</title>
+<link rel="canonical" href="https://servomac.github.io/blog/learning-from-imbalanced-data/">
+
+
+<script type="text/javascript">
+    var baseURL = 'https:\/\/servomac.github.io\/';
+    var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
+    if ((host === window.location.host) && (window.location.protocol !== 'https:')) {
+        window.location.protocol = 'https:';
+    }
+</script>
+
+
+
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://servomac.github.io/css/reset.css?1486317911">
+<link rel="stylesheet" href="https://servomac.github.io/css/pygments.css?1486317911">
+<link rel="stylesheet" href="https://servomac.github.io/css/main.css?1486317911">
+
+
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://servomac.github.io/img/leaf.ico"
+
+>
+
+
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header"> 
+    <div class="container">
+        <div class="content">
+            <a href="https://servomac.github.io/"><div class="name">servo</div></a>
+            <nav>
+                <ul>
+                    <a href="https://servomac.github.io/blog/"><li>Blog</li></a>
+                    <a href="https://servomac.github.io/about/"><li>About</li></a>
+                    <a href="https://servomac.github.io/code/"><li>Code</li></a>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/servomac" target="_blank">
+                <i class="icon ion-social-github"></i>
+            </a>
+        
+        
+        
+            <a href="//twitter.com/pushsink" target="_blank">
+                <i class="icon ion-social-twitter"></i>
+            </a>
+        
+
+        
+            <a href="https://es.linkedin.com/in/tpiza" target="_blank">
+                <i class="icon ion-social-linkedin"></i>
+            </a>
+        
+
+        
+
+        
+
+        
+            <a href="mailto:tpiza[AT]habitissimo.com">
+                <i class="icon ion-ios-email larger"></i>
+            </a>
+        
+
+        
+            <a href="https://servomac.github.io/index.xml">
+                <i class="icon ion-social-rss larger"></i>
+            </a>
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Learning from imbalanced data
+
+</div>
+
+                    <div class="initials"><a href="https://servomac.github.io/"></a></div>
+                </div>
+                <div class="meta">
+                    <div class="date" title="Sun Feb 5 2017 18:00:00 &#43;0200">Feb 5, 2017</div>
+                    <div class="reading-time"><div class="middot"></div>4 minutes read</div>
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<h2 id="what-is-an-imbalanced-dataset">What is an imbalanced dataset?</h2>
+
+<p>Most algorithms for machine learning assume that the training set data classes are balanced. But a lot of real world scenarios present classification problems where the involved classes aren&rsquo;t equally represented: one class is composed by a large number of instances, while the other contains a small number of examples. In this case, the learning algorithm may have difficulties learning the concepts representing the minority class.</p>
+
+<p>Imagine that you are trying to predict the probability that a client leaves your platform (churn analysis). If your product have a good retention ratio, after extracting the dataset from the historical data, your users dataset will contain a lot of examples of people renewing and a minority cancelling their service pack.</p>
+
+<p>Detection of fraudulent transactions, medical diagnosis and detection of oil spills in satellital images are other examples of problems where one of the classes in the dataset is over-represented.</p>
+
+<p>This kind of datasets usually result in the <strong>accuracy paradox</strong>. Imagine a binary
+classification algorithm, trying to maximize the predictive accuracy of the model,
+learning from an imbalanced dataset where 99% of the data is from one class:
+it could construct a trivial classifier that labels every new case as the majority class, ¡achieving a 99% accuracy! This is especially dangerous when the cost of misclassification of the minority class is high.</p>
+
+<h3 id="example">Example</h3>
+
+<p>I will construct an artificial imbalanced dataset using <code>make_moons</code>, a <code>sklearn</code>
+method to generate a dataset with two classes distributed as interleaving half circles.
+I also used <code>make_imbalance</code> method from <code>imbalanced-learn</code> library to skew the
+dataset and create a majority / minority class with a minority class representing
+the 10% percent of the dataset:</p>
+
+<pre><code class="language-python">import matplotlib.pyplot as plt
+import seaborn as sns
+
+from sklearn.datasets import make_moons
+from imblearn.datasets import make_imbalance
+
+N_SAMPLES = 1500
+MINORITY_RATIO = 0.1
+
+X_balanced, y_balanced = make_moons(n_samples=N_SAMPLES,
+                                    shuffle=True,
+                                    noise=0.3,
+                                    random_state=10)
+X, y = make_imbalance(X_balanced,
+                      y_balanced,
+                      ratio=MINORITY_RATIO,
+                      min_c_=1)
+
+f, (ax1, ax2) = plt.subplots(1, 2, sharey=True, sharex=True)
+
+ax1.set_title(&quot;Balanced&quot;)
+ax1.scatter(X_balanced[:, 0], X_balanced[:, 1], marker='o', c=y_balanced)
+
+ax2.set_title(&quot;Imbalanced&quot;)
+ax2.scatter(X[:, 0], X[:, 1], marker='o', c=y)
+plt.show()
+</code></pre>
+
+<h2 id="measuring-the-model-performance">Measuring the model performance</h2>
+
+<p>A classifier in supervised learning is tipically evaluated using a confusion matrix, with columns representing the predicted class and rows representing the actual class. I will use examples of binary classification, but this is generalizable to any number of classes.</p>
+
+<p><img src="https://servomac.github.io/public/img/confusion-matrix.png" alt="" /></p>
+
+<p>In the confusion matrix, the <em>True Negatives</em> (TN) represent the number of instances of the negative class correctly classified, while <em>False Positives</em> (FP) are the negative instances classified as positive. <em>False Negatives</em> (FN) are those example instances of positive class in the test data that are labeled by the predictor as negative; and <em>True Positives</em> (TP) represent those instances of the positive class correctly classified.</p>
+
+<p>The accuracy score is an evaluation metric that defines the predictive accuracy of the model as <code>(TP + TN) / (TP + FP + TN + FN)</code>.</p>
+
+<p>Unfortunately, this accuracy score is not enought to describe the accuracy of a model when confronting imbalanced datasets, or when the cost of misclassification differs between classes.</p>
+
+<p>A good example of this is the <a href="http://odds.cs.stonybrook.edu/mammography-dataset/">Mammography dataset</a>, a skewed data set with a total of 11183 samples with 260 representing calcifications, the positive class. It&rsquo;s also important to improve the sensity of the positive class in the resultant model, due to the nature of the problem.</p>
+
+<p>To avoid the problems related with accuracy score when dealing with imbalanced data, Area Under the ROC Curve (<a href="http://www.dataschool.io/roc-curves-and-auc-explained/">AUC</a>) has emerged as a popular choice for model performance measurement (<a href="http://users.dsic.upv.es/~flip/papers/sigkdd2004.pdf">Ferri et al, 2004</a>).</p>
+
+<h2 id="approaches-to-the-problem">Approaches to the problem</h2>
+
+<p>The methods proposed to deal with the class imbalance problem could be divided in two main categories: those centered in modifying the learner (algorithm / cost function based) and those centered in balancing the training dataset (resampling based).</p>
+
+<p>The sampling methods are centered in modifying the data distribution through sampling algorithms that create a balanced dataset from our original imbalanced dataset. This allows to the algorithm to improve the precision of the minority class predictions. There are oversampling (expand the examples of the minority class) and undersampling (shrink the majority class, with a possibility of losing data) methods.</p>
+
+<p>Instead, the methods centered in the algorithm modify it to use cost-sensitive methods that take into account the cost of misclassifying the minority class.</p>
+
+<h3 id="resampling-methods-in-python-imbalanced-learn">Resampling methods in Python: Imbalanced learn</h3>
+
+<p><a href="https://github.com/scikit-learn-contrib/imbalanced-learn">imbalanced-learn</a> is a Python module implementing a lot of those resampling methods. It&rsquo;s part of the scikit learn contrib projects, and easily integrable with your scikit learn code. Try it, it&rsquo;s amazing!</p>
+
+<h2 id="conclusions">Conclusions</h2>
+
+<p>Remember, creating models from imbalanced data could be a difficult task. You should use evaluation methods for your models resulting from imbalanced data that take into account those particularities. Select correctly the learning algorithm, and evaluate using resampling methods for the training dataset. Let me know your experiences!</p>
+
+<h1 id="references">References</h1>
+
+<ul>
+<li><p>H. He and E. A. Garcia, &ldquo;Learning from Imbalanced Data&rdquo;. IEEE Trans. Knowledge and Data Engineering, vol. 21, issue 9, pp. 1263-­‐1284, 2009.</p></li>
+
+<li><p>G. Lemaitre and F. Nogueira and C. K. Aridas. &ldquo;<a href="https://arxiv.org/abs/1609.06570">Imbalanced-learn: A Python Toolbox to Tackle the Curse of Imbalanced Datasets in Machine Learning</a>. CoRR, 2016.
+TODO</p></li>
+</ul>
+
+                <br>
+                <p><a href="https://servomac.github.io/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'https-servomac-github-io';
+    var disqus_identifier = 'https:\/\/servomac.github.io\/blog\/learning-from-imbalanced-data\/';
+    var disqus_title = 'Learning from imbalanced data';
+    var disqus_url = 'https:\/\/servomac.github.io\/blog\/learning-from-imbalanced-data\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+    var pageTracker = _gat._getTracker("UA-86068014-1");
+    pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+</body>
+</html>
+

@@ -6,8 +6,108 @@
     <description>Recent content in Blog-rsses on Another Machine Learning hyped blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 17 Oct 2016 18:20:37 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 05 Feb 2017 18:00:00 +0200</lastBuildDate>
     <atom:link href="https://servomac.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Learning from imbalanced data</title>
+      <link>https://servomac.github.io/blog/learning-from-imbalanced-data/</link>
+      <pubDate>Sun, 05 Feb 2017 18:00:00 +0200</pubDate>
+      
+      <guid>https://servomac.github.io/blog/learning-from-imbalanced-data/</guid>
+      <description>
+
+&lt;h2 id=&#34;what-is-an-imbalanced-dataset&#34;&gt;What is an imbalanced dataset?&lt;/h2&gt;
+
+&lt;p&gt;Most algorithms for machine learning assume that the training set data classes are balanced. But a lot of real world scenarios present classification problems where the involved classes aren&amp;rsquo;t equally represented: one class is composed by a large number of instances, while the other contains a small number of examples. In this case, the learning algorithm may have difficulties learning the concepts representing the minority class.&lt;/p&gt;
+
+&lt;p&gt;Imagine that you are trying to predict the probability that a client leaves your platform (churn analysis). If your product have a good retention ratio, after extracting the dataset from the historical data, your users dataset will contain a lot of examples of people renewing and a minority cancelling their service pack.&lt;/p&gt;
+
+&lt;p&gt;Detection of fraudulent transactions, medical diagnosis and detection of oil spills in satellital images are other examples of problems where one of the classes in the dataset is over-represented.&lt;/p&gt;
+
+&lt;p&gt;This kind of datasets usually result in the &lt;strong&gt;accuracy paradox&lt;/strong&gt;. Imagine a binary
+classification algorithm, trying to maximize the predictive accuracy of the model,
+learning from an imbalanced dataset where 99% of the data is from one class:
+it could construct a trivial classifier that labels every new case as the majority class, ¡achieving a 99% accuracy! This is especially dangerous when the cost of misclassification of the minority class is high.&lt;/p&gt;
+
+&lt;h3 id=&#34;example&#34;&gt;Example&lt;/h3&gt;
+
+&lt;p&gt;I will construct an artificial imbalanced dataset using &lt;code&gt;make_moons&lt;/code&gt;, a &lt;code&gt;sklearn&lt;/code&gt;
+method to generate a dataset with two classes distributed as interleaving half circles.
+I also used &lt;code&gt;make_imbalance&lt;/code&gt; method from &lt;code&gt;imbalanced-learn&lt;/code&gt; library to skew the
+dataset and create a majority / minority class with a minority class representing
+the 10% percent of the dataset:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import matplotlib.pyplot as plt
+import seaborn as sns
+
+from sklearn.datasets import make_moons
+from imblearn.datasets import make_imbalance
+
+N_SAMPLES = 1500
+MINORITY_RATIO = 0.1
+
+X_balanced, y_balanced = make_moons(n_samples=N_SAMPLES,
+                                    shuffle=True,
+                                    noise=0.3,
+                                    random_state=10)
+X, y = make_imbalance(X_balanced,
+                      y_balanced,
+                      ratio=MINORITY_RATIO,
+                      min_c_=1)
+
+f, (ax1, ax2) = plt.subplots(1, 2, sharey=True, sharex=True)
+
+ax1.set_title(&amp;quot;Balanced&amp;quot;)
+ax1.scatter(X_balanced[:, 0], X_balanced[:, 1], marker=&#39;o&#39;, c=y_balanced)
+
+ax2.set_title(&amp;quot;Imbalanced&amp;quot;)
+ax2.scatter(X[:, 0], X[:, 1], marker=&#39;o&#39;, c=y)
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;measuring-the-model-performance&#34;&gt;Measuring the model performance&lt;/h2&gt;
+
+&lt;p&gt;A classifier in supervised learning is tipically evaluated using a confusion matrix, with columns representing the predicted class and rows representing the actual class. I will use examples of binary classification, but this is generalizable to any number of classes.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://servomac.github.io/public/img/confusion-matrix.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In the confusion matrix, the &lt;em&gt;True Negatives&lt;/em&gt; (TN) represent the number of instances of the negative class correctly classified, while &lt;em&gt;False Positives&lt;/em&gt; (FP) are the negative instances classified as positive. &lt;em&gt;False Negatives&lt;/em&gt; (FN) are those example instances of positive class in the test data that are labeled by the predictor as negative; and &lt;em&gt;True Positives&lt;/em&gt; (TP) represent those instances of the positive class correctly classified.&lt;/p&gt;
+
+&lt;p&gt;The accuracy score is an evaluation metric that defines the predictive accuracy of the model as &lt;code&gt;(TP + TN) / (TP + FP + TN + FN)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, this accuracy score is not enought to describe the accuracy of a model when confronting imbalanced datasets, or when the cost of misclassification differs between classes.&lt;/p&gt;
+
+&lt;p&gt;A good example of this is the &lt;a href=&#34;http://odds.cs.stonybrook.edu/mammography-dataset/&#34;&gt;Mammography dataset&lt;/a&gt;, a skewed data set with a total of 11183 samples with 260 representing calcifications, the positive class. It&amp;rsquo;s also important to improve the sensity of the positive class in the resultant model, due to the nature of the problem.&lt;/p&gt;
+
+&lt;p&gt;To avoid the problems related with accuracy score when dealing with imbalanced data, Area Under the ROC Curve (&lt;a href=&#34;http://www.dataschool.io/roc-curves-and-auc-explained/&#34;&gt;AUC&lt;/a&gt;) has emerged as a popular choice for model performance measurement (&lt;a href=&#34;http://users.dsic.upv.es/~flip/papers/sigkdd2004.pdf&#34;&gt;Ferri et al, 2004&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h2 id=&#34;approaches-to-the-problem&#34;&gt;Approaches to the problem&lt;/h2&gt;
+
+&lt;p&gt;The methods proposed to deal with the class imbalance problem could be divided in two main categories: those centered in modifying the learner (algorithm / cost function based) and those centered in balancing the training dataset (resampling based).&lt;/p&gt;
+
+&lt;p&gt;The sampling methods are centered in modifying the data distribution through sampling algorithms that create a balanced dataset from our original imbalanced dataset. This allows to the algorithm to improve the precision of the minority class predictions. There are oversampling (expand the examples of the minority class) and undersampling (shrink the majority class, with a possibility of losing data) methods.&lt;/p&gt;
+
+&lt;p&gt;Instead, the methods centered in the algorithm modify it to use cost-sensitive methods that take into account the cost of misclassifying the minority class.&lt;/p&gt;
+
+&lt;h3 id=&#34;resampling-methods-in-python-imbalanced-learn&#34;&gt;Resampling methods in Python: Imbalanced learn&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/scikit-learn-contrib/imbalanced-learn&#34;&gt;imbalanced-learn&lt;/a&gt; is a Python module implementing a lot of those resampling methods. It&amp;rsquo;s part of the scikit learn contrib projects, and easily integrable with your scikit learn code. Try it, it&amp;rsquo;s amazing!&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusions&#34;&gt;Conclusions&lt;/h2&gt;
+
+&lt;p&gt;Remember, creating models from imbalanced data could be a difficult task. You should use evaluation methods for your models resulting from imbalanced data that take into account those particularities. Select correctly the learning algorithm, and evaluate using resampling methods for the training dataset. Let me know your experiences!&lt;/p&gt;
+
+&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;H. He and E. A. Garcia, &amp;ldquo;Learning from Imbalanced Data&amp;rdquo;. IEEE Trans. Knowledge and Data Engineering, vol. 21, issue 9, pp. 1263-­‐1284, 2009.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;G. Lemaitre and F. Nogueira and C. K. Aridas. &amp;ldquo;&lt;a href=&#34;https://arxiv.org/abs/1609.06570&#34;&gt;Imbalanced-learn: A Python Toolbox to Tackle the Curse of Imbalanced Datasets in Machine Learning&lt;/a&gt;. CoRR, 2016.
+TODO&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>3 months study guide</title>
