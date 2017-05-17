@@ -1,11 +1,11 @@
     <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
-		
+		<meta name="author" content="servo">
+		<meta name="description" content="Data Science, infrastructure and software">
 		<meta name="generator" content="Hugo 0.17-DEV" />
 		<title>Learning from imbalanced data &middot; Another Machine Learning hyped blog</title>
 		<link rel="shortcut icon" href="https://servomac.github.io/images/favicon.ico">
@@ -14,7 +14,7 @@
 		
 
 		
-		<link rel="stylesheet" href="https://servomac.github.io/css/monosocialiconsfont.css">
+		<link rel="stylesheet" href="https://servomac.github.io/css/font-awesome.min.css">
 		
 
 		
@@ -108,7 +108,7 @@ plt.show()
 
 <p>A classifier in supervised learning is tipically evaluated using a confusion matrix, with columns representing the predicted class and rows representing the actual class. I will use examples of binary classification, but this is generalizable to any number of classes.</p>
 
-<p><img src="https://servomac.github.io/img/confusion-matrix.png" alt="" /></p>
+<p><img src="/img/confusion-matrix.png" alt="" /></p>
 
 <p>In the confusion matrix, the <em>True Negatives</em> (TN) represent the number of instances of the negative class correctly classified, while <em>False Positives</em> (FP) are the negative instances classified as positive. <em>False Negatives</em> (FN) are those example instances of positive class in the test data that are labeled by the predictor as negative; and <em>True Positives</em> (TP) represent those instances of the positive class correctly classified.</p>
 
@@ -149,6 +149,21 @@ plt.show()
             
 
             
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'https-servomac-github-io'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+            
 
             
 
@@ -161,6 +176,18 @@ plt.show()
 <script>hljs.initHighlightingOnLoad();</script>
 
 
+
+
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-86068014-1', 'auto');
+ga('send', 'pageview');
+</script>
 
 
 
