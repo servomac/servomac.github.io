@@ -6,8 +6,26 @@
     <description>Recent content on Another Machine Learning hyped blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 Feb 2017 18:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 01 May 2017 21:23:22 +0200</lastBuildDate>
     <atom:link href="https://servomac.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>books readed in 2017</title>
+      <link>https://servomac.github.io/blog/books-readed-in-2017/</link>
+      <pubDate>Mon, 01 May 2017 21:23:22 +0200</pubDate>
+      
+      <guid>https://servomac.github.io/blog/books-readed-in-2017/</guid>
+      <description>
+
+&lt;h3 id=&#34;april&#34;&gt;April&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.es/Predictive-Analytics-Power-Predict-Click/dp/1119145678&#34;&gt;&lt;em&gt;Predictive Analytics&lt;/em&gt;&lt;/a&gt;, by Eric Siegel&lt;/p&gt;
+
+&lt;h3 id=&#34;may&#34;&gt;May&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Why_Nations_Fail&#34;&gt;&lt;em&gt;Why Nations Fail&lt;/em&gt;&lt;/a&gt;, by Daron Acemoglu &amp;amp; James A. Robinson&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Learning from imbalanced data</title>
@@ -216,11 +234,11 @@ plt.show()
       <pubDate>Tue, 04 Oct 2016 19:21:32 +0200</pubDate>
       
       <guid>https://servomac.github.io/about/</guid>
-      <description>&lt;p&gt;My name is Toni Pizà. I&amp;rsquo;m a developer with a wide range of interests, mainly involved in algorithmics, web architecture, distributed systems and machine learning. I have a bachelor&amp;rsquo;s degree in Computer Science by the University of the Balearic Islands (UIB), and I have coursed a master degree in Computing by the Polytechnic University of Catalonia (UPC). Unfortunately, due to a variety of personal problems, I didn&amp;rsquo;t finish my master thesis.&lt;/p&gt;
+      <description>&lt;p&gt;My name is Toni Pizà. I&amp;rsquo;m a developer with a wide range of interests, mainly involved in algorithmics, web architecture, distributed systems and machine learning. I have a bachelor&amp;rsquo;s degree in Computer Science by the University of the Balearic Islands (UIB), and I have coursed a master degree in Computing by the Polytechnic University of Catalonia (UPC), but i haven&amp;rsquo;t read my master thesis.&lt;/p&gt;
 
 &lt;p&gt;I worked as a backend developer and devops engineer. Currently i&amp;rsquo;m starting a new path in the data science field, with special emphasis in machine learning.&lt;/p&gt;
 
-&lt;p&gt;This blog is an attempt to improve my written expression in english. Also, putting down my ideas is a good way to structurate them, and the public exposure can be useful to recolect feedback of people with more experience than me. I will appreciate any comment, correction and improvement to the opinions exposed in this blog.&lt;/p&gt;
+&lt;p&gt;This blog is an attempt to improve my written expression in english. Also, putting down my ideas is a good way to structurate them, and the public exposure can be useful to recolect feedback of people with more experience than me. I will appreciate any comment, correction and improvement to the ideas exposed in this blog.&lt;/p&gt;
 </description>
     </item>
     

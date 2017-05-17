@@ -6,8 +6,26 @@
     <description>Recent content in Blog-rsses on Another Machine Learning hyped blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 Feb 2017 18:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 01 May 2017 21:23:22 +0200</lastBuildDate>
     <atom:link href="https://servomac.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>books readed in 2017</title>
+      <link>https://servomac.github.io/blog/books-readed-in-2017/</link>
+      <pubDate>Mon, 01 May 2017 21:23:22 +0200</pubDate>
+      
+      <guid>https://servomac.github.io/blog/books-readed-in-2017/</guid>
+      <description>
+
+&lt;h3 id=&#34;april&#34;&gt;April&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.es/Predictive-Analytics-Power-Predict-Click/dp/1119145678&#34;&gt;&lt;em&gt;Predictive Analytics&lt;/em&gt;&lt;/a&gt;, by Eric Siegel&lt;/p&gt;
+
+&lt;h3 id=&#34;may&#34;&gt;May&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Why_Nations_Fail&#34;&gt;&lt;em&gt;Why Nations Fail&lt;/em&gt;&lt;/a&gt;, by Daron Acemoglu &amp;amp; James A. Robinson&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Learning from imbalanced data</title>
