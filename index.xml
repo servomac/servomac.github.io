@@ -6,18 +6,52 @@
     <description>Recent content on Another Machine Learning hyped blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 01 May 2017 21:23:22 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 17 Mar 2018 12:26:00 +0100</lastBuildDate>
     <atom:link href="https://servomac.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Books readed in 2018</title>
+      <link>https://servomac.github.io/blog/books-readed-in-2018/</link>
+      <pubDate>Sat, 17 Mar 2018 12:26:00 +0100</pubDate>
+      
+      <guid>https://servomac.github.io/blog/books-readed-in-2018/</guid>
+      <description>
+
+&lt;h3 id=&#34;march&#34;&gt;March&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.es/Ten-Peor-Coche-Vecino-VIVA/dp/8483566567&#34;&gt;&lt;em&gt;Ten peor coche que tu vecino&lt;/em&gt;&lt;/a&gt;, by Luis Pita&lt;/p&gt;
+
+&lt;h3 id=&#34;february&#34;&gt;February&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.es/Rich-Dad-Poor-Teach-Middle/dp/1612680011&#34;&gt;&lt;em&gt;Poor dad, rich dad&lt;/em&gt;&lt;/a&gt;, by Robert T. Kiyosaki&lt;/p&gt;
+
+&lt;h3 id=&#34;january&#34;&gt;January&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.es/Hacking-Growth-Morgan-Brown/dp/0753545373&#34;&gt;&lt;em&gt;Hacking Growth&lt;/em&gt;&lt;/a&gt;, by Sean Ellis &amp;amp; Morgan Brown&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Books readed in 2017</title>
       <link>https://servomac.github.io/blog/books-readed-in-2017/</link>
-      <pubDate>Mon, 01 May 2017 21:23:22 +0200</pubDate>
+      <pubDate>Fri, 01 Sep 2017 21:23:22 +0200</pubDate>
       
       <guid>https://servomac.github.io/blog/books-readed-in-2017/</guid>
       <description>
 
-&lt;h2 id=&#34;september&#34;&gt;September&lt;/h2&gt;
+&lt;h3 id=&#34;december&#34;&gt;December&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.es/Cartes-Caubet-Rossell%C3%B3-Cun%C3%A9-Josep/dp/8415076576&#34;&gt;&lt;em&gt;Cartes des de Caubet&lt;/em&gt;&lt;/a&gt;, by Josep-Joan Rosselló Cuní&lt;/p&gt;
+
+&lt;h3 id=&#34;november&#34;&gt;November&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.es/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164&#34;&gt;&lt;em&gt;Clean Architecture&lt;/em&gt;&lt;/a&gt;, by Robert C. Martin&lt;/p&gt;
+
+&lt;h3 id=&#34;october&#34;&gt;October&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.es/Matchmakers-New-Economics-Multisided-Platforms/dp/1633691721&#34;&gt;&lt;em&gt;Matchmakers: The new economics of multisided platforms&lt;/em&gt;&lt;/a&gt;, by David S. Evans &amp;amp; Richard Schmalensee&lt;/p&gt;
+
+&lt;h3 id=&#34;september&#34;&gt;September&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://www.amazon.es/Irresistible-APIs-Designing-that-developers/dp/1617292559&#34;&gt;&lt;em&gt;Irresistible APIs&lt;/em&gt;&lt;/a&gt;, by Kirsten L. Hunter&lt;/p&gt;
 
@@ -25,7 +59,7 @@
 
 &lt;p&gt;&lt;a href=&#34;https://www.amazon.es/Confessions-Pricing-Man-Affects-Everything-ebook/dp/B016XMVQA6&#34;&gt;&lt;em&gt;Confesions of the Pricing Man&lt;/em&gt;&lt;/a&gt;, by Hermann Simon&lt;/p&gt;
 
-&lt;h2 id=&#34;august&#34;&gt;August&lt;/h2&gt;
+&lt;h3 id=&#34;august&#34;&gt;August&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://shop.oreilly.com/product/0636920048992.do&#34;&gt;&lt;em&gt;Practical Statistics for Data Scientists&lt;/em&gt;&lt;/a&gt;, by Peter Bruce &amp;amp; Andrew Bruce&lt;/p&gt;
 
