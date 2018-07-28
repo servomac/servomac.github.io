@@ -6,10 +6,24 @@
     <description>Recent content in Books on Another Machine Learning hyped blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 01 Sep 2017 21:23:22 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 27 Jul 2018 12:26:00 +0100</lastBuildDate>
     
 	<atom:link href="https://servomac.github.io/tags/books/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Books readed in 2018</title>
+      <link>https://servomac.github.io/blog/books-readed-in-2018/</link>
+      <pubDate>Fri, 27 Jul 2018 12:26:00 +0100</pubDate>
+      
+      <guid>https://servomac.github.io/blog/books-readed-in-2018/</guid>
+      <description>July Historia de la Economia, by John Kenneth Galbraith
+June Fundación, by Isaac Asimov
+May Python Tricks: The Book, by Dan Bader
+March Ten peor coche que tu vecino, by Luis Pita
+February Poor dad, rich dad, by Robert T. Kiyosaki
+January Hacking Growth, by Sean Ellis &amp;amp; Morgan Brown</description>
+    </item>
     
     <item>
       <title>Books readed in 2017</title>
