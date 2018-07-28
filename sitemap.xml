@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <url>
-    <loc>https://servomac.github.io/</loc>
-    <lastmod>2018-03-17T12:26:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://servomac.github.io/blog/books-readed-in-2018/</loc>
-    <lastmod>2018-03-17T12:26:00+01:00</lastmod>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
     <loc>https://servomac.github.io/blog/books-readed-in-2017/</loc>
@@ -34,6 +25,41 @@
   <url>
     <loc>https://servomac.github.io/fixed/about/</loc>
     <lastmod>2016-10-04T19:21:32+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://servomac.github.io/</loc>
+    <lastmod>2017-09-01T21:23:22+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://servomac.github.io/blog/</loc>
+    <lastmod>2017-09-01T21:23:22+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://servomac.github.io/tags/books/</loc>
+    <lastmod>2017-09-01T21:23:22+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://servomac.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://servomac.github.io/fixed/</loc>
+    <lastmod>2016-10-04T19:21:32+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://servomac.github.io/tags/</loc>
+    <lastmod>2017-09-01T21:23:22+02:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>
