@@ -60,7 +60,7 @@
   <link rel="apple-touch-icon" href="https://servomac.github.io/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.94.0" />
 
   
   
@@ -188,33 +188,33 @@ method to generate a dataset with two classes distributed as interleaving half c
 I also used <code>make_imbalance</code> method from <code>imbalanced-learn</code> library to skew the
 dataset and create a majority / minority class with a minority class representing
 the 10% percent of the dataset:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
-<span style="color:#f92672">import</span> seaborn <span style="color:#66d9ef">as</span> sns
-
-<span style="color:#f92672">from</span> sklearn.datasets <span style="color:#f92672">import</span> make_moons
-<span style="color:#f92672">from</span> imblearn.datasets <span style="color:#f92672">import</span> make_imbalance
-
-N_SAMPLES <span style="color:#f92672">=</span> <span style="color:#ae81ff">1500</span>
-MINORITY_RATIO <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.1</span>
-
-X_balanced, y_balanced <span style="color:#f92672">=</span> make_moons(n_samples<span style="color:#f92672">=</span>N_SAMPLES,
-                                    shuffle<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,
-                                    noise<span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>,
-                                    random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
-X, y <span style="color:#f92672">=</span> make_imbalance(X_balanced,
-                      y_balanced,
-                      ratio<span style="color:#f92672">=</span>MINORITY_RATIO,
-                      min_c_<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
-
-f, (ax1, ax2) <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, sharey<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, sharex<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
-
-ax1<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Balanced&#34;</span>)
-ax1<span style="color:#f92672">.</span>scatter(X_balanced[:, <span style="color:#ae81ff">0</span>], X_balanced[:, <span style="color:#ae81ff">1</span>], marker<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;o&#39;</span>, c<span style="color:#f92672">=</span>y_balanced)
-
-ax2<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Imbalanced&#34;</span>)
-ax2<span style="color:#f92672">.</span>scatter(X[:, <span style="color:#ae81ff">0</span>], X[:, <span style="color:#ae81ff">1</span>], marker<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;o&#39;</span>, c<span style="color:#f92672">=</span>y)
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><h2 id="measuring-the-model-performance">Measuring the model performance</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> seaborn <span style="color:#66d9ef">as</span> sns
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.datasets <span style="color:#f92672">import</span> make_moons
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> imblearn.datasets <span style="color:#f92672">import</span> make_imbalance
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>N_SAMPLES <span style="color:#f92672">=</span> <span style="color:#ae81ff">1500</span>
+</span></span><span style="display:flex;"><span>MINORITY_RATIO <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X_balanced, y_balanced <span style="color:#f92672">=</span> make_moons(n_samples<span style="color:#f92672">=</span>N_SAMPLES,
+</span></span><span style="display:flex;"><span>                                    shuffle<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,
+</span></span><span style="display:flex;"><span>                                    noise<span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>,
+</span></span><span style="display:flex;"><span>                                    random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>X, y <span style="color:#f92672">=</span> make_imbalance(X_balanced,
+</span></span><span style="display:flex;"><span>                      y_balanced,
+</span></span><span style="display:flex;"><span>                      ratio<span style="color:#f92672">=</span>MINORITY_RATIO,
+</span></span><span style="display:flex;"><span>                      min_c_<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>f, (ax1, ax2) <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, sharey<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, sharex<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax1<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Balanced&#34;</span>)
+</span></span><span style="display:flex;"><span>ax1<span style="color:#f92672">.</span>scatter(X_balanced[:, <span style="color:#ae81ff">0</span>], X_balanced[:, <span style="color:#ae81ff">1</span>], marker<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;o&#39;</span>, c<span style="color:#f92672">=</span>y_balanced)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax2<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Imbalanced&#34;</span>)
+</span></span><span style="display:flex;"><span>ax2<span style="color:#f92672">.</span>scatter(X[:, <span style="color:#ae81ff">0</span>], X[:, <span style="color:#ae81ff">1</span>], marker<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;o&#39;</span>, c<span style="color:#f92672">=</span>y)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><h2 id="measuring-the-model-performance">Measuring the model performance</h2>
 <p>A classifier in supervised learning is tipically evaluated using a confusion matrix, with columns representing the predicted class and rows representing the actual class. I will use examples of binary classification, but this is generalizable to any number of classes.</p>
 <p><img src="/img/confusion-matrix.png" alt=""></p>
 <p>In the confusion matrix, the <em>True Negatives</em> (TN) represent the number of instances of the negative class correctly classified, while <em>False Positives</em> (FP) are the negative instances classified as positive. <em>False Negatives</em> (FN) are those example instances of positive class in the test data that are labeled by the predictor as negative; and <em>True Positives</em> (TP) represent those instances of the positive class correctly classified.</p>
